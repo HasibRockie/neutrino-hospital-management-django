@@ -1,0 +1,174 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="main-banner wow fadeIn" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="row">
+          <div class="col-lg-6 align-self-center">
+            <div class="left-content header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
+              <h6>Welcome to Neutrino</h6>
+              <h2>We Provide Best <em>Doctors</em> &amp; Cure <span>Patients</span> With Care</h2>
+              <p>Space Dynamic is a professional looking HTML template using a Bootstrap 5 (beta 2). This CSS template is free for you provided by <a rel="nofollow" href="https://templatemo.com/page/1" target="_parent">TemplateMo</a>.</p>
+              <form id="search" action="#" method="GET"> 
+              </form>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
+              <img src="{% static 'assets/images/banner-right-image.png' %}" alt="team meeting">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="about" class="about-us section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="left-image wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
+          <img src="{% static 'assets/images/about-left-image.png' %}" alt="person graphic">
+        </div>
+      </div>
+      <div class="col-lg-8 align-self-center">
+        <div class="services">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="item wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s">
+                <div class="icon">
+                  <img src="{% static 'assets/images/service-icon-01.png' %}" alt="reporting">
+                </div>
+                <div class="right-text">
+                  <h4>Data Analysis</h4>
+                  <p>Lorem ipsum dolor sit amet, ctetur aoi adipiscing eliter</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="item wow fadeIn" data-wow-duration="1s" data-wow-delay="0.7s">
+                <div class="icon">
+                  <img src="{% static 'assets/images/service-icon-02.png' %}" alt="">
+                </div>
+                <div class="right-text">
+                  <h4>Data Reporting</h4>
+                  <p>Lorem ipsum dolor sit amet, ctetur aoi adipiscing eliter</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="item wow fadeIn" data-wow-duration="1s" data-wow-delay="0.9s">
+                <div class="icon">
+                  <img src="{% static 'assets/images/service-icon-03.png' %}" alt="">
+                </div>
+                <div class="right-text">
+                  <h4>Web Analytics</h4>
+                  <p>Lorem ipsum dolor sit amet, ctetur aoi adipiscing eliter</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="item wow fadeIn" data-wow-duration="1s" data-wow-delay="1.1s">
+                <div class="icon">
+                  <img src="{% static 'assets/images/service-icon-04.png' %}" alt="">
+                </div>
+                <div class="right-text">
+                  <h4>SEO Suggestions</h4>
+                  <p>Lorem ipsum dolor sit amet, ctetur aoi adipiscing eliter</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h4  style="text-align:center;">Doctor's List:</h4> <br>
+<table class="table table-hover p-5" style="padding:20px;text-align:center;">
+  <thead>
+    <tr>
+      <th scope="col">Doctor ID</th>
+      <th scope="col">Full Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Designation</th>
+      <th scope="col">Speciality</th>
+      <th scope="col">Experience</th>
+      <th scope="col">Availability</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for doctor in doctors %}
+    
+    <tr>
+      <th scope="row">{{doctor.doctor_id}}</th>
+      <td>{{doctor.account.first_name}} {{doctor.account.last_name}}</td>
+      <td>{{doctor.account.email}}</td>
+      <td>{{doctor.designation}}</td>
+      <td>{{doctor.speciality}}</td>
+      <td>{{doctor.experience}}</td>
+      <td>{{doctor.appointment_available_days}}</td>
+    </tr>
+    
+    {% endfor %}
+  </tbody>
+</table>
+
+<div id="contact" class="contact-us section" style="margin-top:200px;">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 align-self-center wow fadeInLeft" data-wow-duration="0.5s" data-wow-delay="0.25s">
+        <div class="section-heading">
+          <h2>Feel Free To Send Us a Message About Your Website Needs</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doer ket eismod tempor incididunt ut labore et dolores</p>
+          <div class="phone-info">
+            <h4>For any enquiry, Call Us: <span><i class="fa fa-phone"></i> <a href="#">010-020-0340</a></span></h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 wow fadeInRight" data-wow-duration="0.5s" data-wow-delay="0.25s">
+        <form id="contact" action="" method="post">
+          <div class="row">
+            <div class="col-lg-6">
+              <fieldset>
+                <input type="name" name="name" id="name" placeholder="Name" autocomplete="on" required>
+              </fieldset>
+            </div>
+            <div class="col-lg-6">
+              <fieldset>
+                <input type="surname" name="surname" id="surname" placeholder="Surname" autocomplete="on" required>
+              </fieldset>
+            </div>
+            <div class="col-lg-12">
+              <fieldset>
+                <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your Email" required="">
+              </fieldset>
+            </div>
+            <div class="col-lg-12">
+              <fieldset>
+                <textarea name="message" type="text" class="form-control" id="message" placeholder="Message" required=""></textarea>  
+              </fieldset>
+            </div>
+            <div class="col-lg-12">
+              <fieldset>
+                <button type="submit" id="form-submit" class="main-button ">Send Message</button>
+              </fieldset>
+            </div>
+          </div>
+          <div class="contact-dec">
+            <img src="assets/images/contact-decoration.png" alt="">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock  %}
