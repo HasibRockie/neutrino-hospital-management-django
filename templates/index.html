@@ -12,7 +12,7 @@
             <div class="left-content header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
               <h6>Welcome to Neutrino</h6>
               <h2>We Provide Best <em>Doctors</em> &amp; Cure <span>Patients</span> With Care</h2>
-              <p>Space Dynamic is a professional looking HTML template using a Bootstrap 5 (beta 2). This CSS template is free for you provided by <a rel="nofollow" href="https://templatemo.com/page/1" target="_parent">TemplateMo</a>.</p>
+              
               <form id="search" action="#" method="GET"> 
               </form>
             </div>
@@ -45,7 +45,7 @@
                   <img src="{% static 'assets/images/service-icon-01.png' %}" alt="reporting">
                 </div>
                 <div class="right-text">
-                  <h4>Data Analysis</h4>
+                  <h4>Specialist Doctors</h4>
                   <p>Lorem ipsum dolor sit amet, ctetur aoi adipiscing eliter</p>
                 </div>
               </div>
@@ -56,7 +56,7 @@
                   <img src="{% static 'assets/images/service-icon-02.png' %}" alt="">
                 </div>
                 <div class="right-text">
-                  <h4>Data Reporting</h4>
+                  <h4>Modern Medical Equipment</h4>
                   <p>Lorem ipsum dolor sit amet, ctetur aoi adipiscing eliter</p>
                 </div>
               </div>
@@ -67,7 +67,7 @@
                   <img src="{% static 'assets/images/service-icon-03.png' %}" alt="">
                 </div>
                 <div class="right-text">
-                  <h4>Web Analytics</h4>
+                  <h4>Best Services</h4>
                   <p>Lorem ipsum dolor sit amet, ctetur aoi adipiscing eliter</p>
                 </div>
               </div>
@@ -78,7 +78,7 @@
                   <img src="{% static 'assets/images/service-icon-04.png' %}" alt="">
                 </div>
                 <div class="right-text">
-                  <h4>SEO Suggestions</h4>
+                  <h4>Good Environment</h4>
                   <p>Lorem ipsum dolor sit amet, ctetur aoi adipiscing eliter</p>
                 </div>
               </div>
@@ -101,6 +101,7 @@
       <th scope="col">Speciality</th>
       <th scope="col">Experience</th>
       <th scope="col">Availability</th>
+      <th scope="col">Details</th>
     </tr>
   </thead>
   <tbody>
@@ -114,57 +115,68 @@
       <td>{{doctor.speciality}}</td>
       <td>{{doctor.experience}}</td>
       <td>{{doctor.appointment_available_days}}</td>
+      <td><a href="{% url 'doctor_details' doctor.doctor_id %}" class="btn btn-danger">View</a></td>
     </tr>
     
     {% endfor %}
   </tbody>
 </table>
 
+<div class="doctor-list" style="margin-top:150px; text-align:center;">
+  <h4  style="text-align:center;">Appoinments List:</h4> <br>
+<table class="table table-hover p-5" style="padding:20px;text-align:center;">
+<thead>
+<tr>
+<th scope="col">Patient Name</th>
+<th scope="col">Age</th>
+<th scope="col">Contact</th>
+<th scope="col">Doctor</th>
+<th scope="col">Diesease Syndrome</th>
+<th scope="col">Date</th>
+<th scope="col">Time</th>
+<th scope="col">New/Old Patient</th> 
+</tr>
+</thead>
+<tbody>
+{% for appointment in appointments %}
+
+<tr>
+<th scope="row">{{appointment.patient_name}}</th>
+<th scope="row">{{appointment.patient_age}}</th>
+<th scope="row">{{appointment.patient_contact}}</th>
+<td>{{appointment.doctor}}</td>
+<td>{{appointment.disease_syndrome}}</td>
+<td>{{appointment.date}}</td>
+<td>{{appointment.time}}</td>
+
+  {% if appointment.is_new %}
+  <td class="text-success">New</td>
+  {% else %}
+  <td class="text-danger">Old</td>
+  {% endif %}
+
+</tr>
+
+{% endfor %}
+</tbody>
+</table>
+</div>
+ 
 <div id="contact" class="contact-us section" style="margin-top:200px;">
   <div class="container">
     <div class="row">
       <div class="col-lg-6 align-self-center wow fadeInLeft" data-wow-duration="0.5s" data-wow-delay="0.25s">
         <div class="section-heading">
-          <h2>Feel Free To Send Us a Message About Your Website Needs</h2>
+          <h2>Take an appointment now</h2>
+          <a class="btn btn-secondary" href="{% url 'appointments' %}">Book now</a>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doer ket eismod tempor incididunt ut labore et dolores</p>
           <div class="phone-info">
-            <h4>For any enquiry, Call Us: <span><i class="fa fa-phone"></i> <a href="#">010-020-0340</a></span></h4>
+            <h4>For any enquiry, Call Us: <span><i class="fa fa-phone"></i> <a href="#">01777777777</a></span></h4>
           </div>
         </div>
       </div>
       <div class="col-lg-6 wow fadeInRight" data-wow-duration="0.5s" data-wow-delay="0.25s">
-        <form id="contact" action="" method="post">
-          <div class="row">
-            <div class="col-lg-6">
-              <fieldset>
-                <input type="name" name="name" id="name" placeholder="Name" autocomplete="on" required>
-              </fieldset>
-            </div>
-            <div class="col-lg-6">
-              <fieldset>
-                <input type="surname" name="surname" id="surname" placeholder="Surname" autocomplete="on" required>
-              </fieldset>
-            </div>
-            <div class="col-lg-12">
-              <fieldset>
-                <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your Email" required="">
-              </fieldset>
-            </div>
-            <div class="col-lg-12">
-              <fieldset>
-                <textarea name="message" type="text" class="form-control" id="message" placeholder="Message" required=""></textarea>  
-              </fieldset>
-            </div>
-            <div class="col-lg-12">
-              <fieldset>
-                <button type="submit" id="form-submit" class="main-button ">Send Message</button>
-              </fieldset>
-            </div>
-          </div>
-          <div class="contact-dec">
-            <img src="assets/images/contact-decoration.png" alt="">
-          </div>
-        </form>
+
       </div>
     </div>
   </div>

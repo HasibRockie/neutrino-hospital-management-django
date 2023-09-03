@@ -25,6 +25,6 @@ class DoctorModel(models.Model):
     appointment_available_days = models.CharField(max_length=100, choices=APPOINTMENT_DAYS_CHOICES, blank=True, null=True)
 
     def __str__(self):
-        return str(self.doctor_id) 
+        return str(self.account.first_name + " " + self.account.last_name + ' - ' + self.designation + ' - ' + self.speciality) 
 
 

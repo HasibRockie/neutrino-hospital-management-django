@@ -14,6 +14,15 @@
 
     <div class="doctor-list" style="margin-top:150px; text-align:center;">
         <h4  style="text-align:center;">Doctor's List:</h4> <br>
+
+        <div class="w-100 text-center">
+          <form action="search" method="get">
+              {% csrf_token %}
+              {{search_form}}
+              <button type="submit" class="btn btn-primary">Search</button>
+          </form>
+            
+      </div>
 <table class="table table-hover p-5" style="padding:20px;text-align:center;">
   <thead>
     <tr>
@@ -24,6 +33,7 @@
       <th scope="col">Speciality</th>
       <th scope="col">Experience</th>
       <th scope="col">Availability</th>
+      <th scope="col">See Details</th>
     </tr>
   </thead>
   <tbody>
@@ -37,6 +47,7 @@
       <td>{{doctor.speciality}}</td>
       <td>{{doctor.experience}}</td>
       <td>{{doctor.appointment_available_days}}</td>
+      <td><a href="{% url 'doctor_details' doctor.doctor_id %}" class="btn btn-danger">View</a></td>
     </tr>
     
     {% endfor %}
